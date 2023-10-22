@@ -5,6 +5,14 @@ import { ethers } from 'ethers';
 function App() {
   const [weiAmount, setWeiAmount] = useState("0");
   const [etherAmount, setEtherAmount] = useState("0");
+  const [currentTimestamp, setCurrentTimestamp] = useState("");
+  const [hourTimestamp, setHourTimestamp] = useState("");
+  const [dayTimestamp, setDayTimestamp] = useState("");
+  const [weekTimestamp, setWeekTimestamp] = useState("");
+  const [hashText, setHashText] = useState("");
+  const [hashResult, setHashResult] = useState("");
+  const [encodeText, setEncodeText] = useState("");
+  const [encodeResult, setEncodeResult] = useState("");
 
   function handleWeiUpdate(e) {
     setWeiAmount(e.target.value);
@@ -28,6 +36,38 @@ function App() {
     } catch(err) {
       console.log(err);
     }
+  }
+
+  function handleTimestampQuery() {
+
+  }
+
+  function handleHourQuery() {
+
+  }
+
+  function handleDayQuery() {
+
+  }
+
+  function handleWeekQuery() {
+
+  }
+
+  function handleHashText() {
+
+  }
+
+  function handleHashCalc() {
+
+  }
+
+  function handleEncodeText() {
+
+  }
+
+  function handleAbiEncode() {
+
   }
 
   return (
@@ -57,6 +97,74 @@ function App() {
             />
           </label>
           <br />
+        </form>
+      </div>
+      <div className="request container">
+        <h2>Timestamp Calculator</h2>
+        <br />
+        <form>
+          <label>
+            Current Timestamp: <br/><button type="button" onClick={handleTimestampQuery}>Query</button>
+            <br />
+            <p>{currentTimestamp ? currentTimestamp : ""}</p>
+          </label>
+          <br />
+          <label>
+            1 Hour: <br/><button type="button" onClick={handleHourQuery}>Query</button>
+            <br />
+            <p>{hourTimestamp ? hourTimestamp : ""}</p>
+          </label>
+          <br />
+          <label>
+            1 Day: <br/><button type="button" onClick={handleDayQuery}>Query</button>
+            <br />
+            <p>{dayTimestamp ? dayTimestamp : ""}</p>
+          </label>
+          <br />
+          <label>
+            1 Week: <br/><button type="button" onClick={handleWeekQuery}>Query</button>
+            <br />
+            <p>{weekTimestamp ? weekTimestamp : ""}</p>
+          </label>
+          <br />
+        </form>
+      </div>
+      <div className="request container">
+        <h2>Hash Calculator</h2>
+        <br />
+        <form>
+          <label>
+            Text:
+            <br />
+            <input
+              type="text"
+              value={hashText}
+              onChange={(e) => handleHashText(e)}
+            />
+          </label>
+          <br />
+          <button type="button" onClick={handleHashCalc}>Calculate</button>
+          <br />
+          <p>{hashResult ? hashResult : ""}</p>
+        </form>
+      </div>
+      <div className="request container">
+        <h2>ABI Encoder</h2>
+        <br />
+        <form>
+          <label>
+            Text:
+            <br />
+            <input
+              type="text"
+              value={encodeText}
+              onChange={(e) => handleEncodeText(e)}
+            />
+          </label>
+          <br />
+          <button type="button" onClick={handleAbiEncode}>Encode</button>
+          <br />
+          <p>{encodeResult ? encodeResult : ""}</p>
         </form>
       </div>
     </div>
